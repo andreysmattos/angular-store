@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 type SORT = 'asc' | 'desc'
 
@@ -8,8 +8,9 @@ type SORT = 'asc' | 'desc'
   templateUrl: './products-header.component.html'
 })
 export class ProductsHeaderComponent implements OnInit {
-
+  @Output() columnsCountChange = new EventEmitter<number>();
   sort: SORT = 'asc';
+  itemShowCount: number = 25;
 
 
 
@@ -18,8 +19,16 @@ export class ProductsHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSorteUpdated(newSort: SORT): void {
+  onSortUpdated(newSort: SORT): void {
     this.sort = newSort;
+  }
+
+  onItemsUpdated(count: number): void{
+    this.itemShowCount = count;
+  }
+
+  onColumnsUpdated(colsNum: number): void {
+    this.columnsCountChange.emit(colsNum);
   }
 
 }
