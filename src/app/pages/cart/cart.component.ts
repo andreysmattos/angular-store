@@ -8,15 +8,17 @@ import { Cart, CartItem } from 'src/app/models/cart.model';
 export class CartComponent implements OnInit {
 
   cart: Cart = {
-    items: [{
-      id: 1,
+    items: [
+      {
+        id: 1,
 
-      name: 'Snickers',
-      product: 'https://via.placeholder.com/150',
+        name: 'Snickers',
+        product: 'https://via.placeholder.com/150',
 
-      price: 150,
-      quantity: 1,
-    }]
+        price: 150,
+        quantity: 1,
+      },
+    ]
   }
 
   dataSource: Array<CartItem> = [];
@@ -24,10 +26,10 @@ export class CartComponent implements OnInit {
   displayedColumuns: string[] = [
     'product',
     'name',
-    'price',
-    'quantity',
-    'total',
-    'action'
+    // 'price',
+    // 'quantity',
+    // 'total',
+    // 'action'
   ];
 
   constructor() { }
