@@ -25,8 +25,25 @@ export class CartService {
 
     this.cart.next({ items })
     this._snackBar.open('1 item added to cart.', 'Ok', { duration: 3000 });
-
-    console.log(this.cart.value);
-
   }
+
+  getTotal(items: CartItem[]) {
+    return items.reduce((prev, current) => prev + (current.price * current.quantity), 0); // eu que fiz, logica pode dar erro
+  }
+
+  clearCart(): void {
+    this.cart.next({ items: [] });
+    this._snackBar.open('Cart is cleared.', 'Ok', { duration: 3000 })
+  }
+
+  removeItem(id: number) {
+    const items = this.cart.value.items.filter(item => item.id !== id);
+
+    this.cart.next({ items });
+
+    this._snackBar.open('1 item removed from cart', 'OK', {
+      duration: 3000
+    })
+  }
+
 }

@@ -26,12 +26,21 @@ export class HeaderComponent {
 
   }
 
-
-  getTotal(items: CartItem[]){
-    return items.reduce((prev, current) => prev + (current.price * current.quantity) ,0); // eu que fiz, logica pode dar erro
+  constructor(public cartService: CartService) {
+    console.log('cartService', cartService)
   }
 
-  constructor(public cartServe: CartService) { }
+
+  getTotal(items: CartItem[]): number {
+    return this.cartService.getTotal(items);
+  }
+
+  onClearCart(): void {
+    console.log('xd')
+    this.cartService.clearCart();
+  }
+
+
 
 
 
