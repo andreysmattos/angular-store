@@ -35,15 +35,17 @@
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef="">Quantity</th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button>
+
+                <button mat-icon-button (click)="onDecreseProduct(element)">
                     <mat-icon>remove</mat-icon>
                 </button>
                 <span>
                     {{element.quantity}}
                 </span>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="onIncreseProduct(element)">
                     <mat-icon>add</mat-icon>
                 </button>
+
             </td>
 
             <td mat-footer-cell *matFooterCellDef>

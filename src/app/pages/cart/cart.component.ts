@@ -41,8 +41,16 @@ export class CartComponent implements OnInit {
     this.cartService.clearCart()
   }
 
-  onRemoveItem(id: number){
+  onRemoveItem(id: number) {
     return this.cartService.removeItem(id);
+  }
+
+  onIncreseProduct(element: CartItem) {
+    this.cartService.increseProduct(element);
+  }
+
+  onDecreseProduct(element: CartItem) {
+    this.cartService.decreseProduct(element);
   }
 
 }

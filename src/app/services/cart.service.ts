@@ -46,4 +46,20 @@ export class CartService {
     })
   }
 
+  increseProduct(element: CartItem) {
+    const item = this.cart.value.items.find(value => value.id === element.id);
+    if (item && item.quantity > 0) item.quantity++;
+  }
+
+  decreseProduct(element: CartItem) {
+    const item = this.cart.value.items.find(value => value.id === element.id);
+    if (item) {
+      if (element.quantity === 1) {
+        this.removeItem(element.id)
+      } else {
+        item.quantity--;
+      }
+    }
+  }
+
 }
